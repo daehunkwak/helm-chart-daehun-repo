@@ -1,0 +1,57 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: abook-backend
+  labels:
+    app: abook-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abook-backend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: abook-backend
+    spec:
+      volumes:
+        - name: abook-backend-pvc
+          persistentVolumeClaim:
+            claimName: abook-backend-pvc
+      containers:
+        - resources:
+            limits:
+              cpu: '2'
+              memory: 3Gi
+            requests:
+              cpu: '1'
+              memory: 2Gi
+          terminationMessagePath: /dev/termination-log
+          name: abook-backend
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: abook-backend-pvc
+              mountPath: /home/abook
+          terminationMessagePolicy: File
+          envFrom:
+            - configMapRef:
+                name: abook-backend-config
+          image: '9009fa25-kr1-registry.container.nhncloud.com/tmaxrg-nia-registry/abook-backend:v1.0.6'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: registry-credential
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 30%
+      maxSurge: 30%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
