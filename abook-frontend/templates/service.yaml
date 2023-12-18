@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: abook-frontend-service-template
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: abook-frontend-dep
+  type: LoadBalancer
+  sessionAffinity: None
