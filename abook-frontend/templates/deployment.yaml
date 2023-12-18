@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: abook-frontend-dep
-          image: '9009fa25-kr1-registry.container.nhncloud.com/tmaxrg-nia-registry/abook-frontend:v1.0.5'
+          image: '9009fa25-kr1-registry.container.nhncloud.com/tmaxrg-nia-registry/abook-frontend:v1.0.5.1'
           ports:
             - name: http
               containerPort: 80

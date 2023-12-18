@@ -3,7 +3,7 @@ entries:
   abook-backend:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-18T14:50:59.915031801+09:00"
+    created: "2023-12-18T16:15:28.922292156+09:00"
     description: A Helm chart for Kubernetes
     digest: 8601f678f74c6e149a48ea7eb1dc87a4121a169ad60f51b5214ff628b84ec2f1
     name: abook-backend
@@ -14,12 +14,12 @@ entries:
   abook-frontend:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-18T14:50:59.915426977+09:00"
+    created: "2023-12-18T16:15:28.922669866+09:00"
     description: A Helm chart for Kubernetes
-    digest: b34a9cd952a29cfbadaf6af46c484828203264d11df37c063e2e33daf4f95cbe
+    digest: 6ed698d1574197fae476f513d9875fd05324f605fd8fd30ee0f57a0bcec4a5a3
     name: abook-frontend
     type: application
     urls:
     - abook-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-18T14:50:59.914491309+09:00"
+generated: "2023-12-18T16:15:28.921245198+09:00"
